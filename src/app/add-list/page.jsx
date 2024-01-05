@@ -2,15 +2,18 @@
 
 import addListAction from "@/action/addListAction";
 import { useRouter } from "next/navigation";
-import jsCookie from "js-cookie";
+import { useState } from "react";
+import { MdOutlineSearch } from "react-icons/md";
 
 export default function page() {
-  const router = useRouter();
+  let [isSubmit, setIsSubmit] = useState(false);
 
-  if (!jsCookie.get("admin")) return router.push("/login");
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmit(true);
+
     const files = document.querySelector("input").files;
 
     const fileNames = [];
@@ -24,6 +27,7 @@ export default function page() {
     }
     // console.log(fileNames);
     addListAction(fileNames).then((msg) => {
+      setIsSubmit(false);
       msg === "success" ? router.replace("/") : window.alert(msg);
     });
   };
@@ -40,7 +44,15 @@ export default function page() {
               required
               className="file-input file-input-bordered file-input-neutral w-full max-w-xs"
             />
-            <button className="btn btn-neutral w-full mt-3">INPUT DATA</button>
+            <button className="btn btn-neutral w-full mt-3">
+              {isSubmit ? (
+                <>
+                  <span className="loading loading-spinner"></span> MOHON TUNGGU
+                </>
+              ) : (
+                "INPUT DATA"
+              )}
+            </button>
           </form>
         </div>
       </div>
