@@ -3,7 +3,6 @@
 import addListAction from "@/action/addListAction";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { MdOutlineSearch } from "react-icons/md";
 
 export default function page() {
   let [isSubmit, setIsSubmit] = useState(false);
@@ -28,7 +27,7 @@ export default function page() {
     // console.log(fileNames);
     addListAction(fileNames).then((msg) => {
       setIsSubmit(false);
-      msg === "success" ? router.replace("/") : window.alert(msg);
+      msg === "success" ? router.push("/") : window.alert(msg);
     });
   };
 
