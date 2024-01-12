@@ -16,8 +16,8 @@ export default function Navbar() {
           href="/"
           className="btn btn-link text-neutral no-underline focus:no-underline hover:no-underline font-semibold text-xl gap-0 px-0"
         >
-          <MdMusicNote />
-          <span>LIST</span>
+          <MdMusicNote className="text-slate-700" />
+          <span className="text-slate-700">LIST</span>
           <span className="text-accent">LAGU</span>
         </Link>
       </div>

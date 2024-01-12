@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.__h_rest {
+  min-height: calc(100vh - 96px);
+}

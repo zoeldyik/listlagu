@@ -10,7 +10,7 @@ function LoginNavbarBtn() {
   if (path === "/login") return null;
 
   return (
-    <Link nk href="/login" className="btn btn-neutral btn-sm">
+    <Link nk href="/login" className="btn btn-secondary btn-sm">
       <MdLogin />
       login
     </Link>

@@ -32,7 +32,7 @@ export default function page() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="__h_rest flex justify-center items-center">
       <div className="card w-96">
         <div className="card-body">
           <h3 className="card-title">Masukkan data</h3>
@@ -41,9 +41,9 @@ export default function page() {
               type="file"
               multiple
               required
-              className="file-input file-input-bordered file-input-neutral w-full max-w-xs"
+              className="file-input file-input-bordered file-input-accent w-full max-w-xs"
             />
-            <button className="btn btn-neutral w-full mt-3">
+            <button className="btn btn-accent w-full mt-3">
               {isSubmit ? (
                 <>
                   <span className="loading loading-spinner"></span> MOHON TUNGGU

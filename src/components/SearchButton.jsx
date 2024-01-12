@@ -8,7 +8,7 @@ function SearchButton() {
   return (
     <button
       type="submit"
-      className={`btn btn-sm ${pending ? "btn-disabled" : "btn-neutral"}`}
+      className={`btn btn-sm ${pending ? "btn-disabled" : null}`}
     >
       {!pending && (
         <>

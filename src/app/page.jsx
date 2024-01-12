@@ -4,7 +4,8 @@ import prisma from "../db";
 
 export default async function Home({ searchParams }) {
   const key = searchParams.search;
-  console.log("searchParams= ", key);
+  // console.log("searchParams= ", key);
+
   let datas;
   if (!key) {
     datas = await prisma.Datas.findMany({
@@ -37,6 +38,7 @@ export default async function Home({ searchParams }) {
     const searchQuery = input ? "/?search=" + formData.get("input") : "/";
     redirect(searchQuery);
   }
+
   return (
     <main className="mx-4 mt-4 pb-4 min-h-screen md:w-[640px] md:mx-auto">
       <SearchBar searchAction={searchAction} />
@@ -44,10 +46,10 @@ export default async function Home({ searchParams }) {
       {Boolean(datas.length) ? (
         datas.map(({ filename, nomor }) => (
           <div
-            className="min-h-[68px] flex border-b-2 border-neutral border-opacity-50 py-3 gap-2"
+            className="min-h-[68px] flex border-b-2 border-accent border-opacity-20 py-3 gap-2"
             key={nomor}
           >
-            <div className="px-3 text-base-200 bg-neutral rounded-md flex justify-center items-center">
+            <div className="px-3 text-slate-700 bg-accent rounded-md flex justify-center items-center">
               <p>{nomor}</p>
             </div>
             <p className="text-[14px] md:text-[17px]">{filename}</p>

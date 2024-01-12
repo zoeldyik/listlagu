@@ -9,7 +9,7 @@ function AddListNavbarBtn() {
   if (!isAdmin) return null;
 
   return (
-    <Link href="/add-list" className="mr-3 btn btn-ghost btn-sm">
+    <Link href="/add-list" className="mr-3 btn btn-sm">
       <MdLibraryAdd />
       add list
     </Link>
