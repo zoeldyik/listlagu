@@ -1,36 +1,30 @@
 import Link from "next/link";
-import LogoutBtn from "./LogoutBtn";
-import { cookies } from "next/headers";
 import { MdMusicNote } from "react-icons/md";
-import { MdLogin } from "react-icons/md";
-import { MdLibraryAdd } from "react-icons/md";
+import { cookies } from "next/headers";
+import LogoutBtn from "./LogoutBtn";
+import AddListNavbarBtn from "./AddListNavbarBtn";
+import LoginNavbarBtn from "./LoginNavbarBtn";
 
 export default function Navbar() {
+  const cookieStore = cookies();
+  const isAdmin = cookieStore.get("admin") || false;
+
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar mb-8 px-4 md:px-6">
       <div className="flex-1">
-        <Link href="/" className="btn btn-ghost text-xl gap-0">
+        <Link
+          href="/"
+          className="btn btn-link text-neutral no-underline focus:no-underline hover:no-underline font-semibold text-xl gap-0 px-0"
+        >
           <MdMusicNote />
-          LIST
+          <span>LIST</span>
+          <span className="text-accent">LAGU</span>
         </Link>
       </div>
       <div className="flex-none">
-        {!cookies().get("admin") && (
-          <Link href="/login" className="mr-4 btn btn-outline btn-sm">
-            <MdLogin />
-            login
-          </Link>
-        )}
-
-        {cookies().get("admin") && (
-          <>
-            <Link href="/add-list" className="mr-3 btn btn-ghost btn-sm">
-              <MdLibraryAdd />
-              add list
-            </Link>
-            <LogoutBtn />
-          </>
-        )}
+        <AddListNavbarBtn />
+        {!isAdmin && <LoginNavbarBtn />}
+        {isAdmin && <LogoutBtn />}
       </div>
     </div>
   );

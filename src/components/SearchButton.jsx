@@ -8,13 +8,12 @@ function SearchButton() {
   return (
     <button
       type="submit"
-      aria-disabled={pending}
-      className={`btn btn-sm ${pending ? "btn-neutral" : "btn-outline"}`}
+      className={`btn btn-sm ${pending ? "btn-disabled" : "btn-neutral"}`}
     >
       {!pending && (
         <>
           <MdOutlineSearch />
-          Cari
+          CARI
         </>
       )}
       {pending && (

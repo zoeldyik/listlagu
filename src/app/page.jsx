@@ -38,13 +38,13 @@ export default async function Home({ searchParams }) {
     redirect(searchQuery);
   }
   return (
-    <main className="mx-4 mt-4 min-h-screen md:w-[640px] md:mx-auto">
+    <main className="mx-4 mt-4 pb-4 min-h-screen md:w-[640px] md:mx-auto">
       <SearchBar searchAction={searchAction} />
 
       {Boolean(datas.length) ? (
         datas.map(({ filename, nomor }) => (
           <div
-            className="min-h-[68px] flex border-b-2 border-base-300 py-3 gap-2"
+            className="min-h-[68px] flex border-b-2 border-neutral border-opacity-50 py-3 gap-2"
             key={nomor}
           >
             <div className="px-3 text-base-200 bg-neutral rounded-md flex justify-center items-center">

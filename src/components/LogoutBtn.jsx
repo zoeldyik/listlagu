@@ -7,7 +7,7 @@ export default async function LogoutBtn() {
   const router = useRouter();
   return (
     <button
-      className="btn btn-neutral btn-sm mr-4"
+      className="btn btn-neutral btn-sm"
       onClick={async () => {
         await logoutAction();
         router.refresh();

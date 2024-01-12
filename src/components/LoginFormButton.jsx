@@ -7,8 +7,7 @@ function LoginFormButton() {
   return (
     <button
       type="submit"
-      aria-disabled={pending}
-      className={`btn btn-neutral w-full mt-3`}
+      className={`btn  w-full mt-3 ${pending ? "btn-disabled" : "btn-accent"}`}
     >
       {pending ? "MOHON TUNGGU" : "LOGIN"}
     </button>
