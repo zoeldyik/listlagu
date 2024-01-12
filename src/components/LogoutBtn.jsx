@@ -7,7 +7,7 @@ export default async function LogoutBtn() {
   const router = useRouter();
   return (
     <button
-      className="btn btn-secondary btn-sm"
+      className="btn btn-primary btn-sm"
       onClick={async () => {
         await logoutAction();
         router.refresh();

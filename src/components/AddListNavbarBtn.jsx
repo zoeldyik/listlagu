@@ -1,12 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { MdLibraryAdd } from "react-icons/md";
-import { cookies } from "next/headers";
+import { usePathname } from "next/navigation";
 
 function AddListNavbarBtn() {
-  const cookieStore = cookies();
-  const isAdmin = cookieStore.get("admin") || false;
+  const path = usePathname();
 
-  if (!isAdmin) return null;
+  if (path === "/add-list") return null;
 
   return (
     <Link href="/add-list" className="mr-3 btn btn-sm">

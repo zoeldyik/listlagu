@@ -22,7 +22,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex-none">
-        <AddListNavbarBtn />
+        {isAdmin && <AddListNavbarBtn />}
         {!isAdmin && <LoginNavbarBtn />}
         {isAdmin && <LogoutBtn />}
       </div>
